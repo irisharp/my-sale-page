@@ -27,11 +27,35 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       padding: 15px;
       text-align: center;
+      position: relative;
     }
-    .card img {
+    .gallery {
+      position: relative;
+    }
+    .gallery img {
       max-width: 100%;
       border-radius: 8px;
+      display: none;
     }
+    .gallery img.active {
+      display: block;
+    }
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .nav-btn:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    .prev { left: 5px; }
+    .next { right: 5px; }
     .price {
       font-size: 1.2em;
       color: #007b00;
@@ -59,11 +83,11 @@
 <body>
   <h1>Stuff for Sale</h1>
 
-   <div class="items">
+  <div class="items">
     <!-- Example Item with multiple pictures -->
     <div class="card">
       <div class="gallery">
-        <img src="contactgrill1.jpg" alt="CG - view 1" class="active">
+       <img src="contactgrill1.jpg" alt="CG - view 1" class="active">
         <img src="contactgrill2.jpg" alt="CG - view 2">
         <img src="contactgrill3.jpg" alt="CG - view 3">
         <button class="nav-btn prev">&#10094;</button>
@@ -74,14 +98,23 @@
       <a class="whatsapp-btn" href="https://wa.me/1234567890?text=Hi%2C%20I'm%20interested%20in%20the%20Comfortable%20Chair">Message on WhatsApp</a>
     </div>
 
+    
     <div class="card">
-      <img src="lamp.jpg" alt="Lamp">
+      <div class="gallery">
+        <img src="lamp1.jpg" alt="Lamp - view 1" class="active">
+        <img src="lamp2.jpg" alt="Lamp - view 2">
+        <button class="nav-btn prev">&#10094;</button>
+        <button class="nav-btn next">&#10095;</button>
+      </div>
       <h2>Modern Lamp</h2>
       <p class="price">€15</p>
-      <a class="whatsapp-btn" href="https://wa.me/31684107260?text=Hi%2C%20I'm%20interested%20in%20the%20Modern%20Lamp">Message on WhatsApp</a>
+      <a class="whatsapp-btn" href="https://wa.me/1234567890?text=Hi%2C%20I'm%20interested%20in%20the%20Modern%20Lamp">Message on WhatsApp</a>
     </div>
   </div>
-<script>
+
+
+
+  <script>
     // Simple gallery navigation
     document.querySelectorAll(".gallery").forEach(gallery => {
       const images = gallery.querySelectorAll("img");
@@ -102,7 +135,3 @@
   </script>
 </body>
 </html>
-
-
-
-
